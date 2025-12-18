@@ -1,0 +1,29 @@
+start: statement*
+
+statement: const_decl | expression
+
+const_decl: NAME ":" value ";"
+
+expression: number 
+          | dict
+          | const_ref
+
+const_ref: "${" NAME "}"
+
+dict: "([" [pair ("," pair)*] "])"
+
+pair: NAME ":" value
+
+value: number | dict
+
+number: /[+-]?([1-9][0-9]*|0)/
+
+NAME: /[a-zA-Z][_a-zA-Z0-9]*/
+
+SINGLE_COMMENT: /--[^\n]*/
+MULTI_COMMENT: /%\{(.|\n)*?%\}/
+
+%import common.WS
+%ignore WS
+%ignore SINGLE_COMMENT
+%ignore MULTI_COMMENT
