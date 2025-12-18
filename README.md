@@ -136,3 +136,15 @@ game_settings: ([
   <constant name="active_port">8080</constant>
 </config>
 ```
+
+## Требования
+
+- Python 3.7+
+- lark>=1.1.0
+- pytest>=7.0.0 (для тестов)
+
+Установка зависимостей:
+
+```bash
+pip install -r requirements.txt
+```
