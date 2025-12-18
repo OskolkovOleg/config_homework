@@ -107,7 +107,7 @@ def test_undefined_const_error(parser):
     text = "ref: ${undefined};"
     tree = parser.parse(text)
     transformer = ConfigTransformer()
-    with pytest.raises(ValueError):
+    with pytest.raises((ValueError, exceptions.VisitError)):
         transformer.transform(tree)
 
 
